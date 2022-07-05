@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v1 } from 'uuid';
 
 import TodoList, { TaskType } from './TodoList';
 
@@ -11,25 +12,25 @@ function App() {
   const title: string = 'What to learn';
 
   const [items, setItems] = useState<Array<TaskType>>([
-    { id: 1, title: 'Svelte', isDone: true },
-    { id: 2, title: 'React', isDone: true },
-    { id: 3, title: 'Angular', isDone: true },
-    { id: 4, title: 'Vue', isDone: false },
+    { id: v1(), title: 'Svelte', isDone: true },
+    { id: v1(), title: 'React', isDone: true },
+    { id: v1(), title: 'Angular', isDone: true },
+    { id: v1(), title: 'Vue', isDone: false },
   ]);
 
   const [filter, setFilter] = useState<FilterValuesType>('all');
 
-  const removeItems = (itemID: number) => {
+  const removeItems = (itemID: string) => {
     setItems(items.filter((item) => item.id !== itemID));
   };
 
   let itemsFilter;
   switch (filter) {
     case 'completed':
-      itemsFilter = items.filter((item) => item.isDone === true);
+      itemsFilter = items.filter((item) => item.isDone);
       break;
     case 'active':
-      itemsFilter = items.filter((item) => item.isDone === false);
+      itemsFilter = items.filter((item) => !item.isDone);
       break;
     default:
       itemsFilter = items;
@@ -39,8 +40,8 @@ function App() {
     setFilter(filter);
   };
 
-  const addItems = () => {
-    console.log('add');
+  const addItems = (title: string) => {
+    setItems([{ id: v1(), title, isDone: false }, ...items]);
   };
 
   //UI:
