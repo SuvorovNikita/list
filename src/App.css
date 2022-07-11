@@ -6,3 +6,31 @@
 .App > div {
   margin-right: 50px;
 }
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+.isDone {
+  text-decoration: line-through;
+  color: gray;
+  font-weight: bold;
+}
+
+.active {
+  background-color: tomato;
+  color: white;
+  font-weight: bold;
+  border: 1px solid tomato;
+}
+
+.error {
+  border: 1px solid tomato;
+  outline: tomato;
+}
+
+button {
+  cursor: pointer;
+}
