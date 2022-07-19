@@ -6,31 +6,19 @@
 .App > div {
   margin-right: 50px;
 }
-ul {
-  padding: 0;
-}
-li {
-  list-style: none;
-}
-
-.isDone {
-  text-decoration: line-through;
-  color: gray;
-  font-weight: bold;
-}
-
-.active {
-  background-color: tomato;
-  color: white;
-  font-weight: bold;
-  border: 1px solid tomato;
-}
 
 .error {
-  border: 1px solid tomato;
-  outline: tomato;
+  border: red 1px solid;
 }
 
-button {
-  cursor: pointer;
+.error-message {
+  color: red;
+}
+
+.active-filter {
+  background-color: aquamarine;
+}
+
+.is-done {
+  opacity: 0.5;
 }
